@@ -15,11 +15,12 @@ class ChartDirector:
         for i in range(0,num_labels):
             self.labels.append(i)
 
-    def plot_bar_chart(self):
+    def export_bar_chart(self,output):
         fig = plt.figure()
         ax = fig.add_axes([0,0,1,1])
         ax.bar(self.labels,self.data)
-        plt.show()
+        #plt.show()
+        plt.savefig(output+'foo.png')
 
 
 # read data from source
@@ -31,5 +32,5 @@ print('Generating words...')
 chart_director.generate_random_labels(1000)
 print('Words generated!')
 print('Plotting Bar Chart...')
-chart_director.plot_bar_chart()
+chart_director.export_bar_chart('./data/')
 print('Bar Chart Plotted!')
